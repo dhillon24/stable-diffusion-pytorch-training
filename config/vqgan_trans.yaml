@@ -1,0 +1,26 @@
+run_name: "VQGANTransformer"
+epochs: 100
+learning_rate: 4.5e-06
+batch_size: 20
+image_size: 256
+image_channels: 3
+latent_dim: 256
+num_codebook_vectors: 1024
+gradient_accumulation_steps: 1
+beta: 0.25      ## Commitment loss scaler
+beta1: 0.90      ## Adam beta parameter default: 0.0   
+beta2: 0.95      ## Adam beta parameter default: 0.9999
+disc_start: 10000  # 10000
+disc_factor: 1.
+rec_loss_factor: 1.
+perceptual_loss_factor: 1.
+pkeep: 0.5
+sos_token: 0
+image_save_interval: 40
+dataset_path: './datasets/cifar10-64/train'
+vqgan_checkpoint_path: './models/VQGAN/best/vqgan_best_train_loss_ckpt.pt'
+device: 'cuda'
+
+
+
+

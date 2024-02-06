@@ -1,0 +1,45 @@
+run_name: "CLIP"
+epochs: 500
+learning_rate: 1.0e-04
+image_size: 64   ## 256 used for best model
+batch_size: 32
+val_batch_size: 16
+vocab_size: 49408
+num_tokens: 77
+image_embed_dim: 2048
+text_embed_dim: 768
+context_dim: 256
+num_layers_text_encoder: 12
+num_layers_image_encoder: 12
+num_heads: 8
+image_backbone_stride_factor: 32
+image_encoder_model_name: resnet50
+text_encoder_model_name: distilbert-base-uncased
+text_encoder_tokenizer_name: distilbert-base-uncased 
+train_image_encoder_backbone: False
+pretrained_image_encoder_backbone: True
+train_text_encoder_backbone: False
+pretrained_text_encoder_backbone: True
+gradient_accumulation_steps: 1
+dropout: 0.1
+temperature: 0.5
+beta: 0.25      ## Commitment loss scaler
+beta1: 0.90      ## Adam beta parameter default: 0.0   
+beta2: 0.95      ## Adam beta parameter default: 0.9999
+pkeep: 0.5
+sos_token: 0
+image_save_epoch_interval: 1
+max_matches: 5
+max_matches_test: 10
+dataset_path: './datasets/cifar10-64/train'
+captions_file: './datasets/cifar10-64/train/metadata.csv'
+test_dataset_path: './datasets/cifar10-64/test'
+clip_checkpoint_path: './models/CLIP/best/clip_best_train_loss_ckpt.pt'
+clip_optimizer_path: './models/CLIP/best/clip_best_train_loss_optim.pt'
+load_pretrained_weights: False
+device: 'cuda'
+idle_device: 'cpu'
+
+
+
+

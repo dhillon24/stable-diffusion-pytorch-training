@@ -1,0 +1,59 @@
+run_name: "SD"
+epochs: 100
+learning_rate: 1.0e-04
+batch_size: 16 # batch_size is doubled while sampling images if cfg enabled
+val_batch_size: 16
+image_size: 64
+num_classes: 10
+image_channels: 3
+latent_dim: 256
+context_dim: 256
+time_dim: 256
+vocab_size: 49408
+num_tokens: 77
+num_codebook_vectors: 1024
+num_heads: 8
+image_embed_dim: 2048         ## image_embed_dim must be divisible by num_heads
+text_embed_dim: 768
+num_layers_text_encoder: 12
+num_layers_image_encoder: 12
+image_backbone_stride_factor: 32
+image_encoder_model_name: resnet50                        
+text_encoder_model_name: distilbert-base-uncased       
+text_encoder_tokenizer_name: distilbert-base-uncased    
+train_image_encoder_backbone: False
+pretrained_image_encoder_backbone: True
+train_text_encoder_backbone: False
+pretrained_text_encoder_backbone: True
+vqgan_encoder_downscaling: 4
+dropout: 0.1                                            
+temperature: 0.5                                        
+ema_decay: 0.995
+use_cfg: True
+cfg_scale: 7.5
+use_labels: True
+label_noise: 0.1
+denoise_steps: 50
+beta: 0.25      ## Commitment loss scaler
+beta1: 0.5      ## Adam beta parameter default: 0.0   
+beta2: 0.9      ## Adam beta parameter default: 0.9999
+alternative_cycle_epochs: 5
+disc_start_epoch: 5
+disc_factor: 1.
+rec_loss_factor: 1.
+perceptual_loss_factor: 1.
+gradient_accumulation_steps: 1
+image_save_epoch_interval: 1
+image_save_step_interval: 1000
+image_decay: 0.995
+dataset_path: './datasets/cifar10-64/train'
+test_dataset_path: './datasets/cifar10-64/test'
+captions_file: './datasets/cifar10-64/train/metadata.csv'
+clip_checkpoint_path: './models/CLIP/2024-02-01-19-07-08-925770/clip_best_train_loss_ckpt.pt'
+vqgan_checkpoint_path: './models/VQGAN/best/vqgan_best_train_loss_ckpt.pt'
+sd_checkpoint_path: './models/SD/best/sd_best_train_loss_ckpt.pt'
+sd_optimizer_path: './models/SD/best/sd_best_train_loss_optim.pt'
+load_pretrained_weights: True
+train_conditioning_model: False
+device: 'cuda'
+idle_device: 'cpu'

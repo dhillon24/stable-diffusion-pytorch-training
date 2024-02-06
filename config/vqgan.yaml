@@ -1,0 +1,35 @@
+run_name: "VQGAN"
+epochs: 100
+learning_rate: 0.0000225
+batch_size: 16 # 32
+val_batch_size: 8 # 16
+image_size: 256 # 64
+image_channels: 3
+latent_dim: 256 # 256
+latent_channels: 4
+num_codebook_vectors: 1024
+gradient_accumulation_steps: 1
+beta: 0.25      ## Commitment loss scaler
+beta1: 0.5      ## Adam beta parameter default: 0.0   
+beta2: 0.9      ## Adam beta parameter default: 0.9999
+alternative_cycle_epochs: 5
+disc_start_epoch: 5
+disc_factor: 1.
+rec_loss_factor: 1.
+perceptual_loss_factor: 1.
+image_save_step_interval: 1000
+image_save_epoch_interval: 1
+dataset_path: './datasets/cifar10-64/train'
+test_dataset_path: './datasets/cifar10-64/test'
+device: 'cuda'
+idle_device: 'cpu'
+ema_decay: 0.995
+vqgan_checkpoint_path: './models/VQGAN/best/vqgan_best_train_loss_ckpt.pt'
+vqgan_optimizer_path: './models/VQGAN/best/vqgan_best_train_loss_optim.pt'
+discriminator_checkpoint_path: './models/VQGAN/best/discriminator_best_train_loss_ckpt.pt'
+discriminator_optimizer_path: './models/VQGAN/best/discriminator_best_train_loss_optim.pt'
+load_pretrained_weights: False
+
+
+
+
