@@ -1,0 +1,1 @@
+Trainable pytorch implementations of CLIP, DDPM, VQGAN and Stable Diffusion from scratch. Uses [CIFAR-10 64x64 dataset](https://www.kaggle.com/datasets/joaopauloschuler/cifar10-64x64-resized-via-cai-super-resolution), more dataset support to be added later. Current results can be viewed in 'results' directory
